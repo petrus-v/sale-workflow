@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="sale_header_services" model="sale.header">
+            <field name="name">Services</field>
+            <field name="sequence">10</field>
+            <field name="product_ids"
+                   eval="[(6, 0, [ref('product.product_product_consultant_product_template'),])]"/>
+        </record>
+        <record id="sale_header_materials" model="sale.header">
+            <field name="name">Materials</field>
+            <field name="sequence">20</field>
+            <field name="product_ids"
+                   eval="[(6, 0, [ref('product.product_template_31'),
+                              ref('product.product_template_44'),
+                              ref('product.product_template_47'),])]"/>
+        </record>
+    </data>
+</openerp>

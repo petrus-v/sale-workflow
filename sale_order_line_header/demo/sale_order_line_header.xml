@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="sale_order_line_header_services"
+                model="sale.order.line.header">
+            <field name="name">Services</field>
+            <field name="sequence">10</field>
+            <field name="header_id" ref="sale_header_services"/>
+            <field name="sale_id" ref="sale.sale_order_4"/>
+            <field name="sale_order_line_ids"
+                   eval="[(6, 0, [ref('sale.sale_order_line_8'),])]"/>
+        </record>
+        <record id="sale_order_line_header_materials"
+                model="sale.order.line.header">
+            <field name="name">Materials</field>
+            <field name="sequence">20</field>
+            <field name="header_id" ref="sale_header_materials"/>
+            <field name="sale_id" ref="sale.sale_order_4"/>
+            <field name="sale_order_line_ids"
+                   eval="[(6, 0, [ref('sale.sale_order_line_9'),
+                                  ref('sale.sale_order_line_10'),
+                                  ref('sale.sale_order_line_11'),])]"/>
+        </record>
+    </data>
+</openerp>

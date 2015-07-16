@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="sale_header_view_tree" model="ir.ui.view">
+            <field name="name">Tree view Header references</field>
+            <field name="model">sale.header</field>
+            <field name="type">tree</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree string="Sale header" editable="top">
+                    <field name="sequence" widget="handle"/>
+                    <field name="name" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="sale_header_view_search" model="ir.ui.view">
+            <field name="name">Search view sale header</field>
+            <field name="model">sale.header</field>
+            <field name="type">tree</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <search string="Sale header">
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="sale_header_action" model="ir.actions.act_window">
+            <field name="name">Sale Header</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sale.header</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree</field>
+            <field name="search_view_id"
+                   ref="sale_header_view_search"/>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+
+    </data>
+</openerp>

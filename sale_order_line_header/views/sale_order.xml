@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="view_order_form" model="ir.ui.view">
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="name">Sale header on Sale order form</field>
+            <field name="model">sale.order</field>
+            <field name="type">form</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form[@string='Sales Order Lines']/group/group/field[@name='product_id']"
+                       position="after">
+                    <field name="header_id"/>
+                </xpath>
+                <xpath expr="//tree[@string='Sales Order Lines']/field[@name='sequence']"
+                       position="before">
+                    <field name="header_id"/>
+                </xpath>
+                <xpath expr="//group[@name='sale_total']" position="replace">
+                    <group>
+                        <group name="sale_header">
+                            <field name="header_ids">
+                                <tree string="Headers" editable="top">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="name"/>
+                                    <field name="header_id"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <group class="oe_subtotal_footer oe_right" colspan="1"
+                               name="sale_total">
+                            <field name="amount_untaxed" widget='monetary'
+                                   options="{'currency_field': 'currency_id'}"/>
+                            <field name="amount_tax" widget='monetary'
+                                   options="{'currency_field': 'currency_id'}"/>
+                            <div class="oe_subtotal_footer_separator oe_inline">
+                                <label for="amount_total"/>
+                                <button name="button_dummy"
+                                        states="draft,sent" string="(update)"
+                                        type="object"
+                                        class="oe_edit_only oe_link"/>
+                            </div>
+                            <field name="amount_total" nolabel="1"
+                                   class="oe_subtotal_footer_separator"
+                                   widget='monetary'
+                                   options="{'currency_field': 'currency_id'}"/>
+                        </group>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>

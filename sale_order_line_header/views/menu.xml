@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <menuitem id="sale_header_menu"
+                  name="Sale header"
+                  parent="base.menu_base_config"
+                  groups="base.group_sale_manager"
+                  sequence="80"
+                  action="sale_header_action"/>
+    </data>
+</openerp>
